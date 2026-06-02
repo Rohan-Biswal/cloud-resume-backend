@@ -28,9 +28,7 @@ def visitor_counter(request):
     }
 
     return (
-        jsonify({
-            "visitor_count": count
-        }),
+        jsonify({"visitor_count": count}),
         200,
         headers
     )
