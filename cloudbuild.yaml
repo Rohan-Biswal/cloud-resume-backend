@@ -1,0 +1,33 @@
+steps:
+  - name: "python:3.11"
+    entrypoint: bash
+    args:
+      - "-c"
+      - |
+        pip install -r function/requirements.txt
+        pip install pytest
+        pytest function/test_main.py
+
+  - name: "ubuntu"
+    entrypoint: bash
+    args:
+      - "-c"
+      - |
+        apt-get update
+        apt-get install -y zip
+        cd function
+        zip -r ../function.zip .
+
+  - name: "hashicorp/terraform:latest"
+    dir: terraform
+    args:
+      - init
+
+  - name: "hashicorp/terraform:latest"
+    dir: terraform
+    args:
+      - apply
+      - -auto-approve
+
+options:
+  logging: CLOUD_LOGGING_ONLY
