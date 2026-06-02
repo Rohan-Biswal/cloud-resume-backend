@@ -26,7 +26,8 @@ def visitor_counter(request):
     headers = {
         "Access-Control-Allow-Origin": "*"
     }
-
+    
+    # CI/CD Test Trigger
     return (
         jsonify({"visitor_count": count}),
         200,
