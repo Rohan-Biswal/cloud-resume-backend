@@ -68,6 +68,7 @@ steps:
   args:
     - apply
     - -auto-approve
+    - -lock-timeout=300s
 
 options:
   logging: CLOUD_LOGGING_ONLY
