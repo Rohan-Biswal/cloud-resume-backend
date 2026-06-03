@@ -27,7 +27,7 @@ def visitor_counter(request):
         "Access-Control-Allow-Origin": "*"
     }
     
-    # CI/CD Test Trigger
+    # CI/CD Test Trigger 1
     return (
         jsonify({"visitor_count": count}),
         200,
