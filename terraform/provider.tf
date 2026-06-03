@@ -1,4 +1,10 @@
+
 terraform {
+  backend "gcs" {
+    bucket = "cloud-resume-challenge-497502-tfstate"
+    prefix = "backend"
+  }
+
   required_version = ">= 1.5.0"
 
   required_providers {
